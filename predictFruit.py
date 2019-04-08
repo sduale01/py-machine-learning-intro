@@ -1,9 +1,23 @@
-import sys
-from sklearn import tree
-# feature = [[140, 1], [130, 1], [150, 0], [170, 0]]
-# labels = [0,0,1,1]
-# clf = tree.DecisionTreeClassifier()
-# clf = clf.fit(features, labels) 
+class ScrappyKNN:
 
+from sklearn import datasets
 
-# print(sys.version)
+iris = datasets.load_iris()
+# print(iris)
+# x is features and y is labels
+x = iris.data
+y = iris.target
+
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = .5)
+
+# from sklearn.neighbors import KNeighborsClassifier
+my_classifier = ScrappyKNN()
+
+my_classifier.fit(x_train, y_train)
+
+predictions = my_classifier.predict(x_test)
+print(predictions)
+
+from sklearn.metrics import accuracy_score
+print (accuracy_score(y_test, predictions))
