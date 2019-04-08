@@ -1,4 +1,8 @@
-import random
+# implement euclidean distance measuring algorithm
+from scipy.spatial import distance
+
+def euc(a, b):
+    return distance.euclidean(a,b)
 
 class ScrappyKNN:
     def fit(self, x_train, y_train):
@@ -11,7 +15,7 @@ class ScrappyKNN:
             predictions.append(label)
         return predictions
 
-from sklearn import datasets
+from sklearn import datasets 
 
 iris = datasets.load_iris()
 # print(iris)
